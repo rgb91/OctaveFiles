@@ -17,6 +17,10 @@ p = zeros(size(X, 1), 1);
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
 
+fprintf('X: %d %d\n', size(X));
+fprintf('all_theta: %d %d\n', size(all_theta));
+fprintf('p: %d %d\n', size(p));
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned logistic regression parameters (one-vs-all).
@@ -30,11 +34,14 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+mx = 0;
+probabilities = sigmoid(X*all_theta');
+[mx, p] = max(probabilities, [], 2);
 
-
-
-
-
+fprintf('probabilities: %d %d\n', size(probabilities));
+printf(':: %d \n', probabilities(1,1:end));
+printf('mx: %d \n', mx(1));
+printf('p vector: %d \n', p(1,:));
 
 % =========================================================================
 
